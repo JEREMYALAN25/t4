@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Operaciones Aritméticas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #a1ec3f;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      background-color: #7dd40b;
+      color: #0c504a;
+      padding: 10px 0;
+      margin-bottom: 20px;
+    }
+
+    #calculadora {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 40px;
+      box-shadow: 0 2px 4px rgba(212, 13, 80, 0.884);
+      width: 300px;
+      margin: auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #c90fcf;
+      border-radius: 3px;
+    }
+
+    input[type="submit"] {
+      background-color: #333;
+      color: #18e9aa;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #555;
+    }
+
+    #resultados {
+      margin-top: 20px;
+    }
+
+    #resultados p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Operaciones Aritméticas</h1>
+  <div id="calculadora">
+    <form action="index.php" method="post" id="calculadora-form">
+      <label for="numero1">Número 1:</label>
+      <input type="number" name="numero1" id="numero1" required>
+      <label for="numero2">Número 2:</label>
+      <input type="number" name="numero2" id="numero2" required>
+      <input type="submit" value="Calcular">
+    </form>
+
+    <div id="resultados">
+    </div>
+  </div>
+
+  <script>
+    const calculadoraForm = document.getElementById("calculadora-form");
+    const resultadosDiv = document.getElementById("resultados");
+
+    calculadoraForm.addEventListener("submit", function (e) {
+      e.preventDefault(); 
+
+      const n1 = Number(numero1.value);
+      const n2 = Number(numero2.value);
+
+      resultadosDiv.innerHTML = "";
+
+
+      for (let i = 1; i <= 5; i++) {
+
+        const resultadoP = document.createElement("p");
+
+        switch (i) {
+          case 1:
+            // Suma
+            resultadoP.textContent = `Suma : ${n1 + n2}`;
+            break;
+          case 2:
+            // Resta
+            resultadoP.textContent = `Resta : ${n1 - n2}`;
+            break;
+          case 3:
+            // Multiplicación
+            resultadoP.textContent = `Multiplicación : ${n1 * n2}`;
+            break;
+          case 4:
+            // División
+            resultadoP.textContent = `Division : ${n1 / n2}`;
+            break;
+          case 5:
+            // Módulo
+            resultadoP.textContent = `MOD : ${n1 % n2}`;
+            break;
+        }
+        resultadosDiv.appendChild(resultadoP);
+      }
+    });
+  </script>
+</body>
+</html>
